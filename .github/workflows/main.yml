@@ -1,4 +1,4 @@
-name: Verify Identity
+name: verify
 
 on:
   workflow_dispatch:
@@ -7,3 +7,5 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - run: echo Verified
