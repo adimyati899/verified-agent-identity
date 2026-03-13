@@ -11,13 +11,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: Install ClawHub skill
-        run: npx clawhub@latest install verified-agent-identity
 
       - name: Install dependencies
         run: |
@@ -28,4 +25,4 @@ jobs:
         run: node scripts/createNewEthereumIdentity.js
 
       - name: Link Human to Agent
-        run: node scripts/manualLinkHumanToAgent.js
+        run: node scripts/manualLinkHumanToAgent.js --challenge '{"name":"finder","description":"finder AI Agent"}'
